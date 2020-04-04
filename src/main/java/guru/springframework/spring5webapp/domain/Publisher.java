@@ -13,7 +13,7 @@ public class Publisher {
     private String addressLineOne;
     private String city;
     private String state;
-    private Long zip;
+    private long zip;
 
     @OneToMany
     @JoinColumn(name="publisher_id")
