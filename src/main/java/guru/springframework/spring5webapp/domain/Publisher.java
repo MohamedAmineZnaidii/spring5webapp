@@ -1,16 +1,22 @@
 package guru.springframework.spring5webapp.domain;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Publisher {
-
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String addressLineOne;
     private String city;
     private String state;
     private Long zip;
+
+    @OneToMany
+    @JoinColumn(name="publisher_id")
     private Set<Book> publishedBooks=new HashSet<>();
 
     public Publisher() {
