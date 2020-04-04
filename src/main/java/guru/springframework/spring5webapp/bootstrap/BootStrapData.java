@@ -25,12 +25,14 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Author author= new Author("Author1","Writer");
+        Author author2= new Author("Author2","Writer2");
         Book book=new Book("The wonderful book","123574954");
         Publisher publisher=new Publisher("TheFamousPublisher","8 Publishers Street","PublisherCity","PublisherState", (long) 99900);
         author.getBooks().add(book);
         book.getAuthors().add(author);
 
         authorRepository.save(author);
+        authorRepository.save(author2);
         bookRepository.save(book);
         publisherRepository.save(publisher);
 
